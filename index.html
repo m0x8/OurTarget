@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings Progress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+            height: 30px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0; /* Dynamic width will be set by JS */
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 25px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .progress-text {
+            font-size: 1rem; /* Responsive font size */
+            font-weight: bold;
+        }
+
+        .description {
+            font-size: 1rem; /* Responsive font size */
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .signature {
+            font-size: 1.5rem; /* Responsive font size */
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .progress-text, .description, .signature {
+                font-size: 0.9rem; /* Adjust font size for smaller screens */
+            }
+
+            .progress-container {
+                height: 25px; /* Adjust height for smaller screens */
+            }
+
+            .progress-bar {
+                line-height: 25px; /* Match line height with progress container height */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Target Earnings Progress</h1>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p class="progress-text" id="progress-text"></p>
+        <p class="description">This is the target for Mohamed & Aya</p>
+        <p class="signature">𝒜ℳ</p>
+    </div>
+    <script>
+        const targetAmount = 100000;
+        const earnedAmount = 2200;
+
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+
+        // Calculate the percentage of progress
+        const percentage = (earnedAmount / targetAmount) * 100;
+
+        // Update the progress bar width and text
+        progressBar.style.width = percentage + '%';
+        progressText.textContent = `We have earned $${earnedAmount} out of $${targetAmount} (${percentage.toFixed(2)}%)`;
+    </script>
+</body>
+</html>
