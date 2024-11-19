@@ -97,11 +97,11 @@
         const progressText = document.getElementById('progress-text');
 
         // Calculate the percentage of progress
-        const percentage = (earnedAmount / targetAmount) * 100;
+        const percentage = ((earnedAmount / targetAmount) * 100).toFixed(2);
 
         // Update the progress bar width and text
         progressBar.style.width = percentage + '%';
-        progressText.textContent = `We have earned $${earnedAmount} out of $${targetAmount}.`;
+        progressText.textContent = `We have earned $${earnedAmount} out of $${targetAmount} (${percentage}%)`;
     </script>
 </body>
 </html>
